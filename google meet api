@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google Meet API Example</title>
+</head>
+<body>
+  <h1>Google Meet API Example</h1>
+
+  <script>
+    const apiKey = 'YOUR_API_KEY';
+
+    // Function to create a new meeting link
+    function createMeeting() {
+      fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + apiKey,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          summary: 'Meeting Title',
+          start: { dateTime: '2023-08-03T12:00:00', timeZone: 'YOUR_TIME_ZONE' },
+          end: { dateTime: '2023-08-03T13:00:00', timeZone: 'YOUR_TIME_ZONE' },
+          conferenceData: {
+            createRequest: { requestId: 'YOUR_RANDOM_UNIQUE_ID' },
+          },
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Created meeting: ', data);
+        })
+        .catch((error) => {
+          console.error('Error creating meeting: ', error);
+        });
+    }
+
+    // Function to update an existing meeting link
+    function updateMeeting(meetingId) {
+      fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events/${meetingId}`, {
+        method: 'PATCH',
+        headers: {
+          Authorization: 'Bearer ' + apiKey,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          start: { dateTime: '2023-08-03T14:00:00', timeZone: 'YOUR_TIME_ZONE' },
+          end: { dateTime: '2023-08-03T15:00:00', timeZone: 'YOUR_TIME_ZONE' },
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Updated meeting: ', data);
+        })
+        .catch((error) => {
+          console.error('Error updating meeting: ', error);
+        });
+    }
+
+    // Function to retrieve a meeting link by ID
+    function getMeeting(meetingId) {
+      fetch(`https://www.googleapis.com/calendar/v3/calendars/primary/events/${meetingId}`, {
+        headers: {
+          Authorization: 'Bearer ' + apiKey,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Retrieved meeting: ', data);
+        })
+        .catch((error) => {
+          console.error('Error retrieving meeting: ', error);
+        });
+    }
+  </script>
+
+  <button onclick="createMeeting()">Create Meeting</button>
+  <button onclick="updateMeeting('YOUR_MEETING_ID')">Update Meeting</button>
+  <button onclick="getMeeting('YOUR_MEETING_ID')">Get Meeting</button>
+</body>
+</html>
