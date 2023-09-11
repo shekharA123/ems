@@ -28,7 +28,7 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Install Dependencies
-        run: composer dump-autoload
+        run: composer update --ignore-platform-reqs
 
       - name: Prepare .env file
         run: |
