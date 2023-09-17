@@ -1,4 +1,4 @@
-name: Build, Test, and Release Pipeline EDUSHAMIIT
+name: Build, Test, and Release Pipeline EMS
 
 on:
   push:
