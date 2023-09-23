@@ -29,6 +29,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('homepage');
+});
+
 Route::get('/dashboard', function () {
     return view('index');
 })->middleware(['auth', 'verified'])->name('dashboard');
