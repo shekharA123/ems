@@ -25,7 +25,7 @@
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
         "spatie/laravel-ignition": "^1.0",
-        "barryvdh/laravel-debugbar": "^3.9.1",
+        "barryvdh/laravel-debugbar": "^3.9.2",
         "laravel/dusk": "^7.10.0",
         "laravel/ui": "^4.2.2"
     },
