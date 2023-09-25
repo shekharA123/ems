@@ -4,6 +4,11 @@ Options -MultiViews
 </IfModule>
 
 RewriteEngine On
+RewriteBase /
+
+# Handle public folder and redirect if it's missing in the URL
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L]
 
 # Redirect Trailing Slashes...
 RewriteRule ^(.*)/$ /$1 [L,R=301]

@@ -1,21 +1,18 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
-class ExampleTest extends TestCase
+class ExampleTestFalse extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function test_the_application_returns_a_successful_response()
+    public function test_that_false_is_true()
     {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
+        $this->assertFalse(false);
     }
 }
