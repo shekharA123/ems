@@ -34,6 +34,7 @@ jobs:
         run: |
           sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USER }}" << 'EOF'
             cd "${{ secrets.FTP_SERVER }}"
+            [ "$(basename "$(pwd)")" = "${{ secrets.FTP_SERVER }}" ] && find . -type f -name '.*' -exec rm {} \; && find . -type d -name '.*' -exec rm -rf {} \;
             [ "$(basename "$(pwd)")" = "${{ secrets.FTP_SERVER }}" ] && rm -rf ./*
           EOF
 
@@ -134,7 +135,7 @@ jobs:
             #Prepare .env file
             sed -i "s/DB_DATABASE=.*/DB_DATABASE=${{ secrets.DB_DATABASE }}/" .env
             sed -i "s/DB_USERNAME=.*/DB_USERNAME=${{ secrets.DB_USERNAME }}/" .env
-            sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=${{ secrets.DB_PASSWORD }}/" .env
+            sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=\"${{ secrets.DB_PASSWORD }}\"/" .env
 
           EOF
           
@@ -190,7 +191,7 @@ jobs:
             sed -i "s/APP_DEBUG=.*/APP_DEBUG=${{ vars.APP_DEBUG }}/" .env
             sed -i "s/DB_DATABASE=.*/DB_DATABASE=${{ secrets.DB_DATABASE }}/" .env
             sed -i "s/DB_USERNAME=.*/DB_USERNAME=${{ secrets.DB_USERNAME }}/" .env
-            sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=${{ secrets.DB_PASSWORD }}/" .env
+            sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=\"${{ secrets.DB_PASSWORD }}\"/" .env
 
           EOF
           
@@ -246,7 +247,7 @@ jobs:
             sed -i "s/APP_DEBUG=.*/APP_DEBUG=${{ vars.APP_DEBUG }}/" .env
             sed -i "s/DB_DATABASE=.*/DB_DATABASE=${{ secrets.DB_DATABASE }}/" .env
             sed -i "s/DB_USERNAME=.*/DB_USERNAME=${{ secrets.DB_USERNAME }}/" .env
-            sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=${{ secrets.DB_PASSWORD }}/" .env
+            sed -i "s/DB_PASSWORD=.*/DB_PASSWORD=\"${{ secrets.DB_PASSWORD }}\"/" .env
 
           EOF
           
@@ -307,5 +308,4 @@ jobs:
             cd "${{ secrets.FTP_SERVER }}"
             php artisan migrate:fresh --force
           EOF
-          
           
