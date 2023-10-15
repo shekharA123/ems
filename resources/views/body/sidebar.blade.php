@@ -1,4 +1,15 @@
-    <div class="left-side-menu">
+   <head>
+    <style>
+        #side{
+    width: 260px;
+    height: 908px;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(245, 247, 251, 0.20);
+    background: #1D2433;
+  }
+    </style>
+   </head>
+   <div class="left-side-menu" id="side">
 
                 <div class="h-100" data-simplebar>
 
@@ -10,7 +21,7 @@
 
                         <ul id="side-menu">
 
-                            <li class="menu-title">Navigation</li>
+                            <!-- <li class="menu-title">Navigation</li> -->
 
           <li>
             <a href="{{ url('/dashboard') }}">
@@ -56,6 +67,9 @@
                                         </li>
                                         <li>
                                             <a href="{{ route('add.employee') }}">Add Employee </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ route('hiring.employee') }}">Hiring pipeline </a>
                                         </li>
 
                                     </ul>
