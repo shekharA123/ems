@@ -37,8 +37,6 @@
                                 <th>Attend Status</th> 
                             </tr>
                         </thead>
-                    
-    
         <tbody>
         	@foreach($details as $key=> $item)
             <tr>

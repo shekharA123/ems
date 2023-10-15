@@ -1,0 +1,52 @@
+.recruitment {
+color: #9099AD;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+#layout1{
+display: flex;
+width: 299px;
+height: 180px;
+padding: 50px 35px;
+align-items: center;
+gap: 20px;
+flex-shrink: 0;
+}
+.layout2{
+color: #F5F7FB;
+font-family: Inter;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 40px; /* 222.222% */
+}
+#need{
+color: #F5F7FB;
+font-family: Inter;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 40px; /* 222.222% */
+}
+.open{
+color: #4F5768;
+font-family: Inter;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 40px;
+}
+#id {
+  display: flex;
+  width: 299px;
+  height: 162.951px;
+  padding: 50px 35px;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  color: #F5F7FB;
+
+}

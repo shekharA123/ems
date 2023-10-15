@@ -1,9 +1,5 @@
-
-
-<!doctype html>
-<html lang="en">
-<head>
-
+@extends('admin_dashboard')
+@section('admin')
 <!-- Other head elements -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <title>Laravel 9 Fullcalandar Jquery Ajax Create and Delete Event </title>
@@ -13,6 +9,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.min.js"></script>
 
+<style>
+  .recruitment {
+color: #9099AD;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+</style>
 
 </head>
 <center>
@@ -86,4 +92,4 @@
         });
     });
 </script>
-</html>
+@endsection

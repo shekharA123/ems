@@ -1,16 +1,20 @@
- <div class="navbar-custom">
-                <div class="container-fluid">
-                    <ul class="list-unstyled topnav-menu float-end mb-0">
+ <div   class=" navbar-white navbar-custom ">
+                <div class="container-fluid navbar-white">
+                    <ul class="list-unstyled topnav-menu float-end mb-0 navbar-white">
+                    
+         <li class="nav-item iconnav" style="margin-right:990px;">
+          <!-- data-widget="pushmenu" -->
 
+          <a class="nav-link" onclick="myFunction()" href="#" role="button">
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="46" height="38" viewBox="0 0 46 38" fill="none">
+              <rect x="1" y="1.00006" width="44" height="35.6" rx="4.5" stroke="#8F8C8C" stroke-opacity="0.3"
+                stroke-width="2" />
+              <path d="M23 2H40.5C42.433 2 44 3.567 44 5.5V32.1C44 34.033 42.433 35.6 40.5 35.6H23V2Z" fill="#C7CFD7" />
+            </svg>
+            <!-- <img src="backend/assets/images/Group 4.svg" alt=""> -->
+          </a> 
 
-
-
-
-
-
-
-
-
+        </li> 
 
         @php
          $id = Auth::user()->id;
@@ -112,4 +116,13 @@
                     </ul>
                     <div class="clearfix"></div>
                 </div>
-            </div>
+            </div> 
+
+            <script>
+    function myFunction() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+
+
+  </script>
