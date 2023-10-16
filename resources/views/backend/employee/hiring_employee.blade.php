@@ -21,11 +21,11 @@
                                 <div class="card m-b-30 bg-light"  >
                                     <div class="card-body bg-light">
 
-                                        <div class="d-flex align-items-center" style="width:500px;">
+                                        <div class="d-flex align-items-center" style="width:450px;">
                                             <img  class="d-flex me-3 rounded-circle img-thumbnail avatar-lg" src="backend/assets/images/user1.jpg"  alt="Generic placeholder image">
                                             <div class="flex-grow-1">
-                                                 <h5 class="mt-0 font-size-18 mb-1">Pauline </h5> <!-- <button type="button" class="btn btn-outline-success waves-effect waves-light" style="margin-left:200px;">Active</button> -->
-                                                <p class="text-muted font-size-14">UI Designer</p>
+                                                 <h5 class="mt-0 font-size-18 mb-1">Pauline </h5> 
+                                                <p class="text-muted font-size-14">UI Designer</p> 
 
                                               <ul class="social-links list-inline mb-0">
                                                     <li class="list-inline-item">
@@ -41,9 +41,9 @@
                                                         <a role="button" class="text-reset" title="" data-bs-placement="top" data-bs-toggle="tooltip" href="" data-bs-original-title="@skypename" aria-label="@skypename"><i class="fab fa-skype"></i></a>
                                                     </li>  
                                                 </ul> 
-
-                                            </div>
+                                                <button type="button" class="btn btn-outline-success waves-effect waves-light" style="margin-left:8px;">Active</button> 
                                         </div>
+                                            </div> 
 
                                     </div>
                                 </div>
