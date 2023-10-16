@@ -66,7 +66,7 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" data-bs-toggle="tab" href="#profile1" role="tab" aria-selected="false">
+                                                <a class="nav-link" data-bs-toggle="tab" href="#profile1" role="tab" aria-selected="">
                                                     <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
                                                     <span class="d-none d-sm-block">RESUME</span> 
                                                 </a>
