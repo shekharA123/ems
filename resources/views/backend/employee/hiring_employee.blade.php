@@ -6,13 +6,14 @@
         width: 70px;
         height: 19px;
         flex-shrink: 0;
-        color: #0000;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    text-transform: uppercase;
+        color: #000;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: normal;
+        text-transform: uppercase;
+    
 } 
     </style>
 </head>
@@ -54,33 +55,33 @@
 <!-- second card of hiring pipeline -->
 
                     <div class="card">
-                                    <div class="card-body">
-        
+                                    <div class="card-body" style="width: 1440px; height: 1024px;">
+                                       
                     
                                         <!-- Nav tabs -->
                                         <ul class="nav nav-tabs nav-tabs-custom nav-justified" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link" data-bs-toggle="tab" href="#home1" role="tab" aria-selected="false">
                                                     <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                                    <span class="d-none d-sm-block">DETAILS</span> 
+                                                    <span class="d-none d-sm-block"  style=" color: #000;">DETAILS</span> 
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-bs-toggle="tab" href="#profile1" role="tab" aria-selected="">
                                                     <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
-                                                    <span class="d-none d-sm-block">RESUME</span> 
+                                                    <span class="d-none d-sm-block" style=" color: #000;">RESUME</span> 
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link active" data-bs-toggle="tab" href="#messages1" role="tab" aria-selected="true" >
                                                     <span class="d-block d-sm-none" ><i class="far fa-envelope"></i></span>
-                                                    <span class="d-none d-sm-block" style="font-weight:bold">HIRING PIPELINE</span>   
+                                                    <span class="d-none d-sm-block" style="font-weight:bold">HIRING PIPELINE</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" data-bs-toggle="tab" href="#settings1" role="tab">
                                                     <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                                    <span class="d-none d-sm-block">INTERVIEWS</span>    
+                                                    <span class="d-none d-sm-block" style=" color: #000;">INTERVIEWS</span>    
                                                 </a>
                                             </li>
                                         </ul>
