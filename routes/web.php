@@ -194,7 +194,9 @@ Route::controller(PosController::class)->group(function(){
 });
 
 Route::get('/getevent', [FullCalendarController::class, 'getEvent'])->name('getevent');
-Route::post('/createevent',[FullCalendarController::class, 'createEvent'])->name('createevent');
+// Route::post('/createevent',[FullCalendarController::class, 'createEvent'])->name('createevent');
+Route::get('/calendar/fullcalendar',[FullCalendarController::class, 'FullCalendar'])->name('calendar.fullcalendar');
+Route::post('/calendar/store',[FullCalendarController::class, 'CalendarStore'])->name('calendar.store');
 Route::post('/deleteevent',[FullCalendarController::class, 'deleteEvent'])->name('deleteevent');
 
 Route::controller(FullCalendarController::class)->group(function () {
