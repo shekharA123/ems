@@ -21,11 +21,11 @@ class FullCalendarController extends Controller
         return view('calendar/fullcalendar');
 
     }
-    // public function createEvent(Request $request){
-    //     $data = $request->except('_token');
-    //     $events = Event::insert($data);
-    //     return response()->json($events);
-    // }
+    public function createEvent(Request $request){
+        $data = $request->except('_token');
+        $events = Event::insert($data);
+        return response()->json($events);
+    }
 
     public function FullCalendar(){
         return view('calendar.fullcalendar');
@@ -53,7 +53,7 @@ class FullCalendarController extends Controller
         ]
 
     );
- 
+
         $image1 = $request->file('candidate_profile');
         $name_gen1 = hexdec(uniqid()).'.'.$image1->getClientOriginalExtension();
         Image::make($image1)->resize(300,300)->save('upload/apponitment_inter/'.$name_gen1);
@@ -68,7 +68,7 @@ class FullCalendarController extends Controller
             'title' => $request->title,
             'link_url' => $request->link_url,
             'candidate_profile' =>$save_url,
-            'candidate_name' => $request->candidate_profile,
+            'candidate_name' => $request->candidate_name,
             'interpersonal_skill' => $request->interpersonal_skill,
             'communication_skill' => $request->communication_skill,
             'problem_sovling' => $request->problem_sovling,
@@ -86,7 +86,7 @@ class FullCalendarController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('fullcalendar')->with($notification); 
+        return redirect()->route('getevent/')->with($notification); 
     } // End Method 
 
 
