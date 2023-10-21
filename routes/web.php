@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\Backend\PosController;
 use App\Http\Controllers\FullCalendarController;
+use App\Http\Controllers\Backend\CandidateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,16 @@ Route::get('/delete/employee/{id}','DeleteEmployee')->name('delete.employee');
 });
 
 
+
+
+ /// Candidate All Route
+ Route::controller(CandidateController::class)->group(function(){
+
+     Route::get('/all/candidate','AllCandidate')->name('all.candidate');
+    
+     });
+
+    
 /// Customer All Route
 Route::controller(CustomerController::class)->group(function(){
 

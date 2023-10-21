@@ -79,7 +79,7 @@
                 </li>
 
                 <li id="change">
-                    <a href="{{ route('hiring.employee') }}">
+                    <a href="{{ route('all.candidate') }}">
 
                         <img src="backend/assets/images/octicon_people-24.svg" alt="">
                         <span style="margin-left:5px;" id="mouhov"> Candidates </span>
