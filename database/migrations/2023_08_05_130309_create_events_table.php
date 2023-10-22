@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('interpersonal_skill')->nullable();
             $table->string('communication_skill')->nullable();
             $table->string('problem_sovling')->nullable();
-            $table->string('hr_profile')->nullable();
+            $table->string('hr_profile');
             $table->string('hr_name')->nullable();
             $table->string('hr_email')->nullable();
             $table->string('instruction')->nullable();

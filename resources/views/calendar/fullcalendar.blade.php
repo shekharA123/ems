@@ -231,6 +231,7 @@
         center: 'title',
         right: 'month,basicWeek,basicDay'
       },
+    
       navLinks: true,
       editable: true,
       events: "getevent",
@@ -249,5 +250,4 @@
       }
     });
   });
-
 </script>

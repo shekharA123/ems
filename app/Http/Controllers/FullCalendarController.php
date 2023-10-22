@@ -8,6 +8,7 @@ use App\Models\Event; //add Event Model
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
 
+
 class FullCalendarController extends Controller
 {
     public function getEvent(){
@@ -27,9 +28,11 @@ class FullCalendarController extends Controller
         return response()->json($events);
     }
 
+
     public function FullCalendar(){
         return view('calendar.fullcalendar');
     } // End Method 
+
 
     public function CalendarStore(Request $request){
 
@@ -40,7 +43,7 @@ class FullCalendarController extends Controller
             'candidate_name' => 'required|max:400',
             'interpersonal_skill' => 'required|max:200',
             'communication_skill' => 'required|max:200',
-            'problem_sovling	' => 'required|max:200',
+            'problem_sovling' => 'required|max:200',
             'hr_name' => 'required|max:200',
             'hr_email' => 'required|max:200',
             'instruction' => 'required|max:200',
@@ -54,15 +57,18 @@ class FullCalendarController extends Controller
 
     );
 
-        $image1 = $request->file('candidate_profile');
-        $name_gen1 = hexdec(uniqid()).'.'.$image1->getClientOriginalExtension();
-        Image::make($image1)->resize(300,300)->save('upload/apponitment_inter/'.$name_gen1);
-        $save_url1 = 'upload/apponitment_inter/'.$name_gen1;
+        $image = $request->file('candidate_profile');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(300,300)->save('upload/apponitment_inter/'.$name_gen);
+        $save_url = 'upload/apponitment_inter/'.$name_gen;
 
-        $image2 = $request->file('hr_profile');
-        $name_gen2 = hexdec(uniqid()).'.'.$image2->getClientOriginalExtension();
-        Image::make($image2)->resize(300,300)->save('upload/apponitment_hr/'.$name_gen2);
-        $save_url2 = 'upload/apponitment_hr/'.$name_gen2;
+        $pic = $request->file('hr_profile');
+        $pic_name = hexdec(uniqid()).'.'.$pic->getClientOriginalExtension();
+        Image::make($pic)->resize(302,302)->save('upload/apponitment_hr/'.$pic_name);
+        $image_save= 'upload/apponitment_hr/'.$pic_name;
+
+        $startDatetime = Carbon::parse($request->start)->format('Y-m-d H:i:s');
+        $endDatetime = Carbon::parse($request->end)->format('Y-m-d H:i:s');
 
         Event::insert([
             'title' => $request->title,
@@ -72,12 +78,12 @@ class FullCalendarController extends Controller
             'interpersonal_skill' => $request->interpersonal_skill,
             'communication_skill' => $request->communication_skill,
             'problem_sovling' => $request->problem_sovling,
-            'hr_profile' => $request->$save_url,
+            'hr_profile' => $image_save,
             'hr_name' => $request->hr_name,
-            'email' => $request->email,
+            'hr_email' => $request->hr_email,
             'instruction' => $request->instruction,
-            'start' => $request->start,
-            'end' => $request->end,
+            'start' =>  $startDatetime,
+            'end' =>  $endDatetime,
             'created_at' => Carbon::now(), 
         ]);
 
@@ -86,8 +92,10 @@ class FullCalendarController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('getevent/')->with($notification); 
+        return redirect()->route('getevent')->with($notification); 
     } // End Method 
+
+
 
 
     public function deleteEvent($id){
