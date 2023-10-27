@@ -18,7 +18,7 @@
 <div class="card-body">
 <center>
     <h1 class="card-title">EVENT ALL DATA </h1>
-    <table  class="table table-striped">
+    <table  class=" table-striped">
         <thead>
         <tr>
     <th class="btn btn-info btn-block btn-custom">Sl</th>
