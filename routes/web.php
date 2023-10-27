@@ -80,12 +80,14 @@ Route::get('/delete/employee/{id}','DeleteEmployee')->name('delete.employee');
 
 
 
- /// Candidate All Route
- Route::controller(CandidateController::class)->group(function(){
+  /// Candidate All Route
+  Route::controller(CandidateController::class)->group(function(){
 
-     Route::get('/all/candidate','AllCandidate')->name('all.candidate');
+      Route::get('/all/candidate','AllCandidate')->name('all.candidate');
+      Route::get('/add/candidate','AddCandidate')->name('add.candidate');
+      Route::post('/store/candidate','StoreCandidate')->name('store.candidate');
     
-     });
+      });
 
     
 /// Customer All Route

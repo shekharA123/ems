@@ -32,7 +32,7 @@
                                 <div class="page-title-box">
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
-      <!-- <a href="{{ route('add.employee') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Employee </a>   -->
+       <a href="{{ route('add.candidate') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Candidate </a>   
                                         </ol>
                                     </div>
                                     <h4 class="page-title">Candidates</h4>
@@ -57,12 +57,28 @@
                                 <th>Stages</th>
                                 <th>Applied date</th>
                                 <th>Owner</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                     
     
         <tbody>
-        	
+        @foreach($candidate as $key=> $item)
+            <tr>
+                <td>{{ $key+1 }}</td>
+                <!-- <td> <img src="{{ asset($item->image) }}" style="width:50px; height: 40px;"> </td> -->
+                <td>{{ $item->candidate_name }}</td>
+                <td>{{ $item->rating }}</td>
+                <td>{{ $item->stages }}</td>
+                <td>{{ $item->applied_date }}</td>
+                <td>{{ $item->owner }}</td>
+                <td>
+<a href="{{ route('edit.employee',$item->id) }}" class="btn btn-blue rounded-pill waves-effect waves-light">Edit</a>
+<a href="{{ route('delete.employee',$item->id) }}" class="btn btn-danger rounded-pill waves-effect waves-light" id="delete">Delete</a>
+
+                </td>
+            </tr>
+            @endforeach
         </tbody>
                     </table>
 

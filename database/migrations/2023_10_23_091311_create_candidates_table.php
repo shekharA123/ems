@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
             $table->string('candidate_name')->nullable();
-            $table->int('rating')->nullable();
-            $table->int('stages')->nullable(); 
-            $table->date('applied_date')->nullable();
+            $table->string('rating')->nullable();
+            $table->string('stages')->nullable();
+            $table->integer('applied_date')->nullable();
             $table->string('owner')->nullable();
+            
             $table->timestamps();
         });
     }

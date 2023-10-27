@@ -107,7 +107,7 @@
                 <li class="nav-header recruitment mt-2" style="margin-left:23px;">ORGANIZATION </li>
 
                 <li class="mt-2" id="change">
-                    <a href="{{ url('/getevent') }}">
+                    <a href="{{ route('all.employee') }}">
 
                         <img src="backend/assets/images/employee.svg" alt="">
                         <span style="margin-left:5px;" id="mouhov"> Employee </span>
