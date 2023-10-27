@@ -1,5 +1,5 @@
 <!-- Other head elements -->
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
 <title>Laravel 9 Fullcalandar Jquery Ajax Create and Delete Event </title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet" />
 <!-- JS for jQuery -->
@@ -52,10 +52,7 @@
         <div class="col-lg-12">
           <h2>Calendar</h2>
           <div id="calendar">
-
           </div>
-
-
           <!-- Modal -->
           <div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -169,7 +166,7 @@
                     <img id="showImage2" src="{{  url('upload/no_image.jpg') }}" class="rounded-circle"
                       style="width:100px" alt="profile-image">
                   </div>
-                </div>
+               
                 <div class="mb-3">
                   <label class="form-label">HR Name</label>
                   <input name="hr_name" class="form-control @error('hr_name') is-invalid @enderror" type="text">
@@ -188,12 +185,13 @@
                 <div class="mb-3">
                   <label class="form-label">Instruction</label>
                   <input name="instruction" class="form-control @error('instruction') is-invalid @enderror" type="text"
-                    id="example-text-input">
+                    id="example-text-input" value="">
                   @error('instruction')
                   <span class="text-danger"> {{ $message }} </span>
                   @enderror
                 </div>
-                <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Save</button>
+                <button type="submit" id="createEventButton" class="btn btn-success waves-effect waves-light mt-2"><i
+                    class="mdi mdi-content-save"></i> Save</button>
               </div>
             </div>
           </div>
@@ -202,6 +200,8 @@
     </div>
   </form>
 </body>
+</html>
+
 <script type="text/javascript">
 
   $(document).ready(function () {
@@ -224,7 +224,7 @@
   });
 </script>
 <script>
-  $(document).ready(function () {
+   $(document).ready(function () {
     var calendar = $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',
@@ -250,4 +250,44 @@
       }
     });
   });
+</script>
+<script>
+//   $(document).ready(function () {
+//     var calendar = $('#calendar').fullCalendar({
+//         header: {
+//             left: 'prev,next today',
+//             center: 'title',
+//             right: 'month,basicWeek,basicDay'
+//         },
+//         navLinks: true,
+//         editable: true,
+//         events: "getevent",
+//         displayEventTime: false,
+//         selectable: true,
+//         selectHelper: true,
+//         select: function (start, end, allDay) {
+//     $('#basicExampleModal').modal('show');
+    
+//     $('#createEventButton').on('click', function () {
+//         var title = $('#eventTitle').val();
+
+//         if (title) {
+//             $.ajax({
+//                 url: "{{ URL::to('createevent') }}",
+//                 data: 'title=' + title + '&start=' + start.format() + '&end=' + end.format() + '&allDay=' + allDay + '&_token=' + "{{ csrf_token() }}",
+//                 type: "post",
+//                 success: function (data) {
+//                     alert("Event added successfully");
+//                     $('#calendar').fullCalendar('refetchEvents');
+//                 }
+//             });
+
+//             $('#basicExampleModal').modal('hide');
+//         } else {
+//             alert("Please enter an event title");
+//         }
+//     });
+// }
+//     });
+// });
 </script>

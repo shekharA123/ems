@@ -11,16 +11,30 @@ use Carbon\Carbon;
 
 class FullCalendarController extends Controller
 {
-    public function getEvent(){
-        if(request()->ajax()){
-            $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
-            $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
-            $events = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)
-                    ->get(['id','title','start', 'end']);
+    // public function getEvent(){
+    //     if(request()->ajax()){
+    //         $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
+    //         $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
+    //         $events = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)
+    //                 ->get(['id','title','start', 'end','link_url']);
+    //         return response()->json($events);
+    //     }
+    //     return view('calendar/fullcalendar');
+
+    // }
+
+    public function getEvent() {
+        if (request()->ajax()) {
+            $start = request('start');
+            $end = request('end');
+            $events = Event::where(function ($query) use ($start, $end) {
+                $query->where('start', '>=', $start)->where('end', '<=', $end);
+            })->orWhere(function ($query) use ($start, $end) {
+                $query->where('start', '<=', $start)->where('end', '>=', $start);
+            })->get(['id', 'title', 'start', 'end', 'link_url']);
             return response()->json($events);
         }
         return view('calendar/fullcalendar');
-
     }
     public function createEvent(Request $request){
         $data = $request->except('_token');
@@ -130,11 +144,32 @@ class FullCalendarController extends Controller
 
     public function update($id, Request $request)
     {
-        $request->validate([
-            'event' => 'required|string|max:255',
+
+        $validateData = $request->validate([
+            'title' => 'required|max:200',
+            'link_url' => 'required|max:300',
+            'candidate_profile' => 'required',
+            'candidate_name' => 'required|max:400',
+            'interpersonal_skill' => 'required|max:200',
+            'communication_skill' => 'required|max:200',
+            'problem_sovling' => 'required|max:200',
+            'hr_name' => 'required|max:200',
+            'hr_email' => 'required|max:200',
+            'instruction' => 'required|max:200',
             'start' => 'required|date',
             'end' => 'required|date|after:start',
-        ]);
+        ],
+        
+        [
+            'title.required' => 'This Appointment Title Field Is Required',
+        ]
+
+    );
+        // $request->validate([
+        //     'event' => 'required|string|max:255',
+           
+            
+        // ]);
 
         $event = Event::find($id);
 
@@ -144,6 +179,15 @@ class FullCalendarController extends Controller
 
         $event->title = $request->input('event');
         $event->start = $request->input('start');
+        $event->link_url = $request->input('link_url');
+        $event->candidate_profile = $request->input('candidate_profile');
+        $event->candidate_name = $request->input('candidate_name');
+        $event->interpersonal_skill = $request->input('interpersonal_skill');
+        $event->communication_skill = $request->input('communication_skill');
+        $event->problem_sovling = $request->input('problem_sovling');
+        $event->hr_name = $request->input('hr_name');
+        $event->hr_email = $request->input('hr_email');
+        $event->instruction = $request->input('instruction');
         $event->end = $request->input('end');
         $event->save();
 
