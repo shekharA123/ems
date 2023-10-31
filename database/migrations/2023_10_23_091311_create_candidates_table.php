@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('candidate_name')->nullable();
             $table->string('rating')->nullable();
             $table->string('stages')->nullable();
-            $table->integer('applied_date')->nullable();
+            $table->string('applied_date')->nullable();
             $table->string('owner')->nullable();
             
             $table->timestamps();

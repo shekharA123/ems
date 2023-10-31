@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Candidate;
-use Image;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Carbon;
 
 class CandidateController extends Controller
@@ -25,9 +25,10 @@ class CandidateController extends Controller
     public function StoreCandidate(Request $request){
         $validateData = $request->validate([
             'candidate_name' => 'required|max:200',
-           
-            'experience' => 'required', 
-           
+            'rating' => 'required', 
+            'stages' => 'required', 
+            'applied_date' => 'required',
+            'owner' => 'required',
         ],[
             'candidate_name.required' => 'This Candidate Name Field Is Required',
         ]);
@@ -35,15 +36,16 @@ class CandidateController extends Controller
         Candidate::insert([
 
             'candidate_name' => $request->candidate_name,
-            // 'email' => $request->email,
-            // 'phone' => $request->phone,
-            // 'address' => $request->address,
+             'rating' => $request->rating,
+             'stages' => $request->stages,
+             'applied_date' => $request->applied_date,
+             'owner' => $request->owner,
             // 'experience' => $request->experience,
             // 'salary' => $request->salary,
             // 'vacation' => $request->vacation,
             // 'city' => $request->city,
             // 'image' => $save_url,
-            'stages' => $request->stages,
+            
             'created_at' => Carbon::now(), 
 
         ]);

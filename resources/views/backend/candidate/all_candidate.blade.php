@@ -7,9 +7,9 @@
                     <div class="container-fluid">
                         
                         <!-- start page title -->
-                        <div class="row">
+                       <!-- <div class="row">
                             <div class="col-12">
-                            <!-- <div class="row">
+                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
                                     <div class="dataTables_length" id="basic-datatable_length">
                                         <label class="form-label">Show <select name="basic-datatable_length" aria-controls="basic-datatable" class="form-select form-select-sm">
@@ -36,8 +36,12 @@
                                         </ol>
                                     </div>
                                     <h4 class="page-title">Candidates</h4>
-                                </div>
+                                          <div id="basic-datatable_filter" class="dataTables_filter">
+                                          <label>Filter:<input type="filter" class="form-control form-control-sm" placeholder="filter" aria-controls="basic-datatable"></label>
+                                         </div>
                             </div>
+                                </div> 
+                               
                         </div>     
                         <!-- end page title --> 
 
