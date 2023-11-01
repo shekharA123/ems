@@ -190,7 +190,7 @@
                   <span class="text-danger"> {{ $message }} </span>
                   @enderror
                 </div>
-                <button type="submit" id="createEventButton" class="btn btn-success waves-effect waves-light mt-2"><i
+                <button type="submit" id="showAlertButton" class="btn btn-success waves-effect waves-light mt-2"><i
                     class="mdi mdi-content-save"></i> Save</button>
               </div>
             </div>
@@ -231,12 +231,13 @@
         center: 'title',
         right: 'month,basicWeek,basicDay'
       },
-    
       navLinks: true,
       editable: true,
       events: "getevent",
       displayEventTime: false,
-      eventRender: function (event, element, view) {
+      eventRender: function (event, element, view,link_url) {
+        var formattedStart = moment(event.start);
+        var formattedEnd = moment(event.end);
         if (event.allDay === 'true') {
           event.allDay = true;
         } else {
@@ -252,42 +253,9 @@
   });
 </script>
 <script>
-//   $(document).ready(function () {
-//     var calendar = $('#calendar').fullCalendar({
-//         header: {
-//             left: 'prev,next today',
-//             center: 'title',
-//             right: 'month,basicWeek,basicDay'
-//         },
-//         navLinks: true,
-//         editable: true,
-//         events: "getevent",
-//         displayEventTime: false,
-//         selectable: true,
-//         selectHelper: true,
-//         select: function (start, end, allDay) {
-//     $('#basicExampleModal').modal('show');
-    
-//     $('#createEventButton').on('click', function () {
-//         var title = $('#eventTitle').val();
-
-//         if (title) {
-//             $.ajax({
-//                 url: "{{ URL::to('createevent') }}",
-//                 data: 'title=' + title + '&start=' + start.format() + '&end=' + end.format() + '&allDay=' + allDay + '&_token=' + "{{ csrf_token() }}",
-//                 type: "post",
-//                 success: function (data) {
-//                     alert("Event added successfully");
-//                     $('#calendar').fullCalendar('refetchEvents');
-//                 }
-//             });
-
-//             $('#basicExampleModal').modal('hide');
-//         } else {
-//             alert("Please enter an event title");
-//         }
-//     });
-// }
-//     });
-// });
+$(document).ready(function () {
+  $('#showAlertButton').on('click', function () {
+    alert('You want to Insert Appointment Details');
+  });
+});
 </script>

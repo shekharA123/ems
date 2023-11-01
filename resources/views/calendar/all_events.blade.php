@@ -18,7 +18,7 @@
 <div class="card-body">
 <center>
     <h1 class="card-title">EVENT ALL DATA </h1>
-    <table  class=" table-striped">
+    <table  class="table-striped">
         <thead>
         <tr>
     <th class="btn btn-info btn-block btn-custom">Sl</th>
@@ -65,7 +65,7 @@
             </a>
             <br>
             <a href="{{ route('deleteEvent', $item->id) }}">
-                <button class="btn btn-info btn-block btn-custom">Delete</button>
+                <button class="btn btn-danger btn-block btn-custom">Delete</button>
             </a>
         </td>
     </tr>

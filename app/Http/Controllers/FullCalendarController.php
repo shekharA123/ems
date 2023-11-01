@@ -11,31 +11,35 @@ use Carbon\Carbon;
 
 class FullCalendarController extends Controller
 {
-    // public function getEvent(){
-    //     if(request()->ajax()){
-    //         $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
-    //         $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
-    //         $events = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)
-    //                 ->get(['id','title','start', 'end','link_url']);
-    //         return response()->json($events);
-    //     }
-    //     return view('calendar/fullcalendar');
-
-    // }
-
-    public function getEvent() {
-        if (request()->ajax()) {
-            $start = request('start');
-            $end = request('end');
-            $events = Event::where(function ($query) use ($start, $end) {
-                $query->where('start', '>=', $start)->where('end', '<=', $end);
-            })->orWhere(function ($query) use ($start, $end) {
-                $query->where('start', '<=', $start)->where('end', '>=', $start);
-            })->get(['id', 'title', 'start', 'end', 'link_url']);
+    public function getEvent(){
+        if(request()->ajax()){
+            $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
+            $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
+            $link_url = (!empty($_GET["link_url"])) ? ($_GET["link_url"]) : ('');
+            $events = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)
+                    ->get(['id','title','start', 'end','link_url']);
             return response()->json($events);
         }
         return view('calendar/fullcalendar');
+
     }
+
+//     public function getEvent()
+// {
+//     if (request()->ajax()) {
+//         $start = request('start');
+//         $end = request('end');
+//         $events = Event::where(function ($query) use ($start, $end) {
+//             $query->where('start', '>=', $start)->where('end', '<=', $end);
+//         })->orWhere(function ($query) use ($start, $end) {
+//             $query->where('start', '<=', $start)->where('end', '>=', $start);
+//         })->get(['id', 'title', 'start', 'end', 'link_url']);
+
+//         return response()->json($events);
+//     }
+
+//     return view('calendar/fullcalendar');
+// }
     public function createEvent(Request $request){
         $data = $request->except('_token');
         $events = Event::insert($data);
@@ -130,7 +134,7 @@ class FullCalendarController extends Controller
 
         return view('calendar/all_events',compact('event'));
     }
-
+    
     public function edit($id)
     {
         $event = Event::find($id);
@@ -142,57 +146,83 @@ class FullCalendarController extends Controller
         return view('calendar/edit_events', compact('event'));
     }
 
-    public function update($id, Request $request)
-    {
+    public function FullCalendarUpdate(Request $request){
+   
+        $fullcal_id = $request->id;
 
-        $validateData = $request->validate([
-            'title' => 'required|max:200',
-            'link_url' => 'required|max:300',
-            'candidate_profile' => 'required',
-            'candidate_name' => 'required|max:400',
-            'interpersonal_skill' => 'required|max:200',
-            'communication_skill' => 'required|max:200',
-            'problem_sovling' => 'required|max:200',
-            'hr_name' => 'required|max:200',
-            'hr_email' => 'required|max:200',
-            'instruction' => 'required|max:200',
-            'start' => 'required|date',
-            'end' => 'required|date|after:start',
-        ],
-        
-        [
-            'title.required' => 'This Appointment Title Field Is Required',
-        ]
+        if ($request->file('image')) {
 
-    );
-        // $request->validate([
-        //     'event' => 'required|string|max:255',
-           
+            $image = $request->file('candidate_profile');
+            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            Image::make($image)->resize(300,300)->save('upload/apponitment_inter/'.$name_gen);
+            $save_url = 'upload/apponitment_inter/'.$name_gen;
+
             
-        // ]);
+        $pic = $request->file('hr_profile');
+        $pic_name = hexdec(uniqid()).'.'.$pic->getClientOriginalExtension();
+        Image::make($pic)->resize(302,302)->save('upload/apponitment_hr/'.$pic_name);
+        $image_save= 'upload/apponitment_hr/'.$pic_name;
 
-        $event = Event::find($id);
+        event::findOrFail($fullcal_id)->update([
 
-        if (!$event) {
-            return redirect()->back()->with('error', 'Event not found.');
-        }
+            'title' => $request->title,
+            'link_url' => $request->link_url,
+            'candidate_profile' =>$save_url,
+            'candidate_name' => $request->candidate_name,
+            'interpersonal_skill' => $request->interpersonal_skill,
+            'communication_skill' => $request->communication_skill,
+            'problem_sovling' => $request->problem_sovling,
+            'hr_profile' => $image_save,
+            'hr_name' => $request->hr_name,
+            'hr_email' => $request->hr_email,
+            'instruction' => $request->instruction,
+            'start' =>  $startDatetime,
+            'end' =>  $endDatetime,
+            'created_at' => Carbon::now(), 
 
-        $event->title = $request->input('event');
-        $event->start = $request->input('start');
-        $event->link_url = $request->input('link_url');
-        $event->candidate_profile = $request->input('candidate_profile');
-        $event->candidate_name = $request->input('candidate_name');
-        $event->interpersonal_skill = $request->input('interpersonal_skill');
-        $event->communication_skill = $request->input('communication_skill');
-        $event->problem_sovling = $request->input('problem_sovling');
-        $event->hr_name = $request->input('hr_name');
-        $event->hr_email = $request->input('hr_email');
-        $event->instruction = $request->input('instruction');
-        $event->end = $request->input('end');
-        $event->save();
+        ]);
 
-        return redirect()->route('calendar.all_events')->with('success', 'Event updated successfully.');
-    }
+         $notification = array(
+            'message' => 'FullCalendar Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('calendar.all_events')->with($notification); 
+             
+        } else{
+
+            event::findOrFail($fullcal_id)->update([
+
+                'title' => $request->title,
+                'link_url' => $request->link_url,
+                'candidate_profile' =>$save_url,
+                'candidate_name' => $request->candidate_name,
+                'interpersonal_skill' => $request->interpersonal_skill,
+                'communication_skill' => $request->communication_skill,
+                'problem_sovling' => $request->problem_sovling,
+                'hr_profile' => $image_save,
+                'hr_name' => $request->hr_name,
+                'hr_email' => $request->hr_email,
+                'instruction' => $request->instruction,
+                'start' =>  $startDatetime,
+                'end' =>  $endDatetime,
+                'created_at' => Carbon::now(), 
+
+        ]);
+
+         $notification = array(
+            'message' => 'FullCalendar Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('calendar.all_events')->with($notification); 
+
+        } // End else Condition  
+
+
+    } // End Method 
+
+    
 
 
 }

@@ -53,7 +53,7 @@
 
 
                 <li id="change">
-                    <a href="{{ route('pos') }}">
+                    <a href="{{ route('inbox.all_inbox') }}">
                         <img src="backend/assets/images/clarity_inbox-line.svg" alt="">
                         <span style="margin-left:5px;" id="mouhov"> Inbox </span>
                     </a>
