@@ -86,7 +86,9 @@ Route::get('/delete/employee/{id}','DeleteEmployee')->name('delete.employee');
       Route::get('/all/candidate','AllCandidate')->name('all.candidate');
       Route::get('/add/candidate','AddCandidate')->name('add.candidate');
       Route::post('/store/candidate','StoreCandidate')->name('store.candidate');
-    
+      Route::get('/edit/candidate/{id}','EditCandidate')->name('edit.candidate');
+      Route::post('/update/candidate','UpdateCandidate')->name('update.candidate');
+      Route::get('/delete/candidate/{id}','DeleteCandidate')->name('delete.candidate');
       });
 
     

@@ -57,4 +57,47 @@ class CandidateController extends Controller
 
         return redirect()->route('all.candidate')->with($notification); 
     } //end method
+
+
+    public function EditCandidate($id){
+        $candidate = Candidate::findOrFail($id);
+        return view('backend.candidate.edit_candidate',compact('candidate'));
+    }// end method
+
+
+    public function UpdateCandidate(Request $request){
+        $candidate_id = $request->id;
+
+        Candidate::findOrFail($candidate_id)->update([
+
+            'candidate_name' => $request->candidate_name,
+             'rating' => $request->rating,
+             'stages' => $request->stages,
+             'applied_date' => $request->applied_date,
+             'owner' => $request->owner,
+            'created_at' => Carbon::now(), 
+
+        ]);
+
+         $notification = array(
+            'message' => 'Candidate Updated Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('all.candidate')->with($notification); 
+    }//end method
+
+
+    public function DeleteCandidate($id){
+
+        Candidate::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Candidate Deleted Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification); 
+
+    }//end method
 }
