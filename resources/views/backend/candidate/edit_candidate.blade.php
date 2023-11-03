@@ -149,12 +149,12 @@
             <label for="firstname" class="form-label">Candidate stage    </label>
            <select name="stages" class="form-select @error('stages') is-invalid @enderror" id="example-select">
                     <option selected disabled >Select stage </option>
-                    <option value="1 stage" name="stages">New applied</option>
-                    <option value="2 stage"name="stages">Screening</option>
-                    <option value="3 stage"name="stages">Design challenge</option>
-                    <option value="4 stage"name="stages">Interview</option>
-                    <option value="5 stage"name="stages">Test</option>
-                    <option value="6 stage"name="stages">Hired</option>
+                    <option value="New applied" name="stages">New applied</option>
+                    <option value="Screening"name="stages">Screening</option>
+                    <option value="Design challenge"name="stages">Design challenge</option>
+                    <option value="Interview"name="stages">Interview</option>
+                    <option value="Test"name="stages">Test</option>
+                    <option value="Hired"name="stages">Hired</option>
                 </select>
                  @error('stages')
       <span class="text-danger"> {{ $message }} </span>

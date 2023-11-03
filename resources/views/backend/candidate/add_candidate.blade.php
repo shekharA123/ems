@@ -144,15 +144,15 @@
         <div class="mb-3">
 <label for="rate">Rate this candidate:</label><br>
 <div class="rate">
-    <input type="radio" id="star5" name="rate" value="5" />
+    <input type="radio" id="star5" name="rating" value="5.0" />
     <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
+    <input type="radio" id="star4" name="rating" value="4.0" />
     <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
+    <input type="radio" id="star3" name="rating" value="3.0" />
     <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
+    <input type="radio" id="star2" name="rating" value="2.0" />
     <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
+    <input type="radio" id="star1" name="rating" value="1.0" />
     <label for="star1" title="text">1 star</label>
   </div>
 </div>
@@ -174,17 +174,27 @@
             <label for="firstname" class="form-label">Candidate stage    </label>
            <select name="stages" class="form-select @error('stages') is-invalid @enderror" id="example-select">
                     <option selected disabled >Select stage </option>
-                    <option value="1 stage">New applied</option>
-                    <option value="2 stage">Screening</option>
-                    <option value="3 stage">Design challenge</option>
-                    <option value="4 stage">Interview</option>
-                    <option value="5 stage">Test</option>
-                    <option value="6 stage">Hired</option>
+                    <option value="New Applied" name="stages">New Applied</option>
+                    <option value="Screening" name="stages">Screening</option>
+                    <option value="Design challenge" name="stages">Design challenge</option>
+                    <option value="Interview" name="stages">Interview</option>
+                    <option value="Test" name="stages">Test</option>
+                    <option value="Hired" name="stages">Hired</option>
                 </select>
                  @error('stages')
       <span class="text-danger"> {{ $message }} </span>
             @enderror
          
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Applied Date</label>
+            <input type="date" name="applied_date" class="form-control @error('applied_date') is-invalid @enderror" >  
+              @error('applied_date')
+      <span class="text-danger"> {{ $message }} </span>
+            @enderror 
         </div>
     </div>
 
