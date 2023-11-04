@@ -103,15 +103,15 @@
     </div>
 
 
-              <!-- <div class="col-md-6">
+               <div class="col-md-6">
         <div class="mb-3">
-            <label for="firstname" class="form-label">Employee Email</label>
+            <label for="firstname" class="form-label">Candidate Email</label>
             <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"   >
              @error('email')
       <span class="text-danger"> {{ $message }} </span>
             @enderror
         </div>
-    </div> -->
+    </div> 
 
 
 
@@ -125,6 +125,28 @@
             @enderror
         </div>
     </div> -->
+
+
+    
+   <div class="col-md-12">
+<div class="mb-3">
+        <label for="example-fileinput" class="form-label">Candidate Image</label>
+        <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
+          @error('image')
+      <span class="text-danger"> {{ $message }} </span>
+            @enderror
+    </div>
+ </div>   <!--end col -->
+
+
+    <div class="col-md-12">
+<div class="mb-3">
+        <label for="example-fileinput" class="form-label"> </label>
+        <img id="showImage" src="{{  url('upload/no_image.jpg') }}" class="rounded-circle avatar-lg img-thumbnail"
+                alt="profile-image">
+    </div>
+ </div>   <!--end col -->
+
     
     <!-- <label for="rating">Rate this candidate:</label><br>
  <div class="star-rating"> 
@@ -241,25 +263,25 @@
 
 
 
-<!-- 
+
    <div class="col-md-12">
 <div class="mb-3">
-        <label for="example-fileinput" class="form-label">Employee Image</label>
-        <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
-          @error('image')
+        <label for="example-fileinput" class="form-label">Owner Image</label>
+        <input type="file" name="owner_image" id="image2" class="form-control @error('owner_image') is-invalid @enderror">
+          @error('owner_image')
       <span class="text-danger"> {{ $message }} </span>
             @enderror
     </div>
- </div> end col -->
+ </div>   <!--end col -->
 
 
-   <!-- <div class="col-md-12">
+    <div class="col-md-12">
 <div class="mb-3">
         <label for="example-fileinput" class="form-label"> </label>
-        <img id="showImage" src="{{  url('upload/no_image.jpg') }}" class="rounded-circle avatar-lg img-thumbnail"
+        <img id="showImage2" src="{{  url('upload/no_image.jpg') }}" class="rounded-circle avatar-lg img-thumbnail"
                 alt="profile-image">
     </div>
- </div> end col -->
+ </div>   <!--end col -->
 
 
 
@@ -297,6 +319,16 @@
 			var reader = new FileReader();
 			reader.onload =  function(e){
 				$('#showImage').attr('src',e.target.result);
+			}
+			reader.readAsDataURL(e.target.files['0']);
+		});
+	});
+
+    $(document).ready(function(){
+		$('#image2').change(function(e){
+			var reader = new FileReader();
+			reader.onload =  function(e){
+				$('#showImage2').attr('src',e.target.result);
 			}
 			reader.readAsDataURL(e.target.files['0']);
 		});

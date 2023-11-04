@@ -79,12 +79,13 @@
         @foreach($candidate as $key=> $item)
             <tr>
                 <td>{{ $key+1 }}</td>
-                <!-- <td> <img src="{{ asset($item->image) }}" style="width:50px; height: 40px;"> </td> -->
-                <td>{{ $item->candidate_name }}</td>
-                <td>{{ $item->rating }}</td>
+                 <td> <img src="{{ asset($item->image) }}" style="width: 20.359px; height: 21.121px; flex-shrink: 0;"> {{ $item->candidate_name }}</td>
+                <td><svg xmlns="http://www.w3.org/2000/svg" width="14" height="20" viewBox="0 0 14 14" fill="none">
+                       <path d="M7.64551 0.789795L9.21711 5.62668H14.3029L10.1884 8.61603L11.76 13.4529L7.64551 10.4636L3.53101 13.4529L5.10261 8.61603L0.988112 5.62668H6.07391L7.64551 0.789795Z" fill="#FFD600"/>
+                    </svg>{{ $item->rating }} </td>
                 <td>{{ $item->stages }}</td>
                 <td>{{ $item->applied_date }}</td>
-                <td>{{ $item->owner }}</td>
+                <td><img src="{{ asset($item->owner_image) }}" style="width: 20.359px; height: 21.121px; flex-shrink: 0;">{{ $item->owner }}</td>
                 <td> 
                 <div class="dropdown sub-dropdown">
                          <button class="btn btn-link text-muted dropdown-toggle show" type="button" id="dd1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

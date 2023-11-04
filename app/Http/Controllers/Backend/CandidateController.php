@@ -33,18 +33,31 @@ class CandidateController extends Controller
             'candidate_name.required' => 'This Candidate Name Field Is Required',
         ]);
 
+        $image = $request->file('image');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(300,300)->save('upload/candidate/'.$name_gen);
+        $save_url = 'upload/candidate/'.$name_gen;
+
+
+        $owner_images = $request->file('owner_image');
+        $name_gen_owner = hexdec(uniqid()).'.'.$owner_images->getClientOriginalExtension();
+        Image::make($owner_images)->resize(320,320)->save('upload/owner/'.$name_gen_owner);
+        $image_save = 'upload/owner/'.$name_gen_owner;
+
         Candidate::insert([
 
             'candidate_name' => $request->candidate_name,
+              'email' => $request->email,
              'rating' => $request->rating,
              'stages' => $request->stages,
              'applied_date' => $request->applied_date,
              'owner' => $request->owner,
+             'owner_image' => $image_save,
             // 'experience' => $request->experience,
             // 'salary' => $request->salary,
             // 'vacation' => $request->vacation,
             // 'city' => $request->city,
-            // 'image' => $save_url,
+             'image' => $save_url,
             
             'created_at' => Carbon::now(), 
 

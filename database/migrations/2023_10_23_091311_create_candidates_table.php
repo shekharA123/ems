@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
             $table->string('candidate_name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('image')->nullable();
             $table->string('rating')->nullable();
             $table->string('stages')->nullable();
             $table->string('applied_date')->nullable();

@@ -46,7 +46,7 @@
                 <li id="change">
                     <a href="{{ url('/dashboard') }}">
 
-                        <img src="backend/assets/images/Union.svg" alt="">
+                        <img src="backend/assets/images/Union.svg" alt="" >
                         <span style="margin-left:7px;" id="mouhov"> Dashboard </span>
                     </a>
                 </li>
