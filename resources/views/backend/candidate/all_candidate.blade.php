@@ -44,10 +44,96 @@
        <a href="{{ route('add.candidate') }}" class="btn btn-primary rounded-pill waves-effect waves-light">Add Candidate </a>   
                                         </ol>
                                     </div>
-                                    <h4 class="page-title">Candidates</h4>
-                                          <div id="basic-datatable_filter" class="dataTables_filter">
-                                          <label>Filter:<input type="filter" class="form-control form-control-sm" placeholder="filter" aria-controls="basic-datatable"></label>
+                                   
+                                    <h4 class="page-title">Candidates</h4> 
+                            
+                                    <!-- <div class="col-sm-12 col-md-6">
+                                        <div class="dt-buttons btn-group flex-wrap">     
+                                        <div class="dropdown sub-dropdown"> 
+                                             <button type="button" class="btn btn-outline-light waves-effect">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                     <path d="M7.15893 15.1334C6.87614 15.1334 6.63781 15.0364 6.44394 14.8426C6.25009 14.6487 6.15316 14.4104 6.15316 14.1276V8.92467L0.956401 2.28419C0.717366 1.99093 0.682096 1.68135 0.850592 1.35544C1.0191 1.02953 1.28438 0.866577 1.64643 0.866577H14.4214C14.7835 0.866577 15.0488 1.02953 15.2173 1.35544C15.3858 1.68135 15.3522 1.99093 15.1167 2.28419L9.91995 8.92467V14.1694C9.91995 14.4453 9.82737 14.6749 9.64222 14.8583C9.45707 15.0417 9.22659 15.1334 8.95077 15.1334H7.15893ZM8.03393 8.88663L13.1845 2.36217H2.88855L8.03393 8.88663Z" fill="black"/>
+                                                </svg> &nbsp; Filter</button>
+                                                 <div class="btn-group dropend"> 
+                                                   
+                                            </div> 
+                                            </div>
                                          </div>
+                                    </div> -->
+                                          <!-- <div id="basic-datatable_filter" class="dataTables_filter">
+                                          <label>Filter:<input type="filter" class="form-control form-control-sm" placeholder="filter" aria-controls="basic-datatable"></label>
+                                         </div> -->
+                                         <div class="d-flex gap-2 flex-wrap">
+                                            <!-- Default dropright button -->
+                                            <div class="btn-group dropend">
+                                                <button type="button" class="btn btn-outline-light waves-effect" data-bs-toggle="dropdown" aria-expanded="false">
+                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                     <path d="M7.15893 15.1334C6.87614 15.1334 6.63781 15.0364 6.44394 14.8426C6.25009 14.6487 6.15316 14.4104 6.15316 14.1276V8.92467L0.956401 2.28419C0.717366 1.99093 0.682096 1.68135 0.850592 1.35544C1.0191 1.02953 1.28438 0.866577 1.64643 0.866577H14.4214C14.7835 0.866577 15.0488 1.02953 15.2173 1.35544C15.3858 1.68135 15.3522 1.99093 15.1167 2.28419L9.91995 8.92467V14.1694C9.91995 14.4453 9.82737 14.6749 9.64222 14.8583C9.45707 15.0417 9.22659 15.1334 8.95077 15.1334H7.15893ZM8.03393 8.88663L13.1845 2.36217H2.88855L8.03393 8.88663Z" fill="black"/>
+                                                </svg> &nbsp; Filter
+                                                </button>
+                                                <div class="dropdown-menu" style="width: 300px;">
+                                                    <a class="dropdown-item" href="">stage</a>
+                                                  <!-- <form>  <div class="col-md-10">
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Candidate stage    </label>
+           <select name="stages" class="form-select @error('stages') is-invalid @enderror" id="example-select">
+                    <option selected disabled >Select stage </option>
+                    <option value="New applied" name="stages">New applied</option>
+                    <option value="Screening"name="stages">Screening</option>
+                    <option value="Design challenge"name="stages">Design challenge</option>
+                    <option value="Interview"name="stages">Interview</option>
+                    <option value="Test"name="stages">Test</option>
+                    <option value="Hired"name="stages">Hired</option>
+                </select>
+                 @error('stages')
+      <span class="text-danger"> {{ $message }} </span>
+            @enderror
+         
+        </div>
+    </div>
+    <div class="text-start">
+                <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Save</button>
+            </div></form> -->
+           
+            <form action='' method="GET">
+    <h3>Filters</h3>
+   <div class="row">
+    <div class="col-md-8">
+        <label > filter by status</label>
+        <select name="stages" class="form-select">
+                    <option selected disabled >Select stage </option>
+                    <option value="New applied" name="stages">New applied</option>
+                    <option value="Screening"name="stages">Screening</option>
+                    <option value="Design challenge"name="stages">Design challenge</option>
+                    <option value="Interview"name="stages">Interview</option>
+                    <option value="Test"name="stages">Test</option>
+                    <option value="Hired"name="stages">Hired</option>
+                </select>
+    </div>
+    <div> 
+        <button type="submit" class="btn-btn-primary">filter it</button>
+    </div>
+   </div>
+     <!-- <div>
+        <label>stage :</label>
+        <input type='text' value='' class='filter' data-column-index='1'>
+        
+    </div> -->
+     <!-- <div>
+        <label>Office :</label>
+        <input type='text' value='' class='filter' data-column-index='2'>
+    </div> -->
+    <!-- <button type="button" class="filter-button">
+    search
+    </button> -->
+</form>
+                                                    
+                                                </div>
+                                            </div>
+        
+                                            
+        
+                                        </div>
                             </div>
                                 </div> 
                                
@@ -63,6 +149,7 @@
                     <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                         <thead>
                             <tr>
+                            <th><input class="form-check-input" type="checkbox"></th>
                                 <th>Sl</th>
                                 
                                 <th>Candidate Name</th>
@@ -78,6 +165,7 @@
         <tbody>
         @foreach($candidate as $key=> $item)
             <tr>
+            <th scope="row"><input class="form-check-input" type="checkbox"></th>
                 <td>{{ $key+1 }}</td>
                  <td> <img src="{{ asset($item->image) }}" style="width: 20.359px; height: 21.121px; flex-shrink: 0;"> {{ $item->candidate_name }}</td>
                 <td><svg xmlns="http://www.w3.org/2000/svg" width="14" height="20" viewBox="0 0 14 14" fill="none">
@@ -88,7 +176,7 @@
                 <td><img src="{{ asset($item->owner_image) }}" style="width: 20.359px; height: 21.121px; flex-shrink: 0;">{{ $item->owner }}</td>
                 <td> 
                 <div class="dropdown sub-dropdown">
-                         <button class="btn btn-link text-muted dropdown-toggle show" type="button" id="dd1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                         <button class="btn btn-link text-muted dropdown-toggle show" type="button" id="dd1" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="9" viewBox="0 0 35 9" fill="none">
                                          <circle cx="4" cy="4.61523" r="4" fill="#9A9A9A"/>
                                          <circle cx="17" cy="4.61523" r="4" fill="#9A9A9A"/>
@@ -131,4 +219,31 @@
                 </div> <!-- content -->
 
 
+
+<script>
+                $(document).ready(function () {
+
+// DataTable
+var dtable = $('#basic-datatable').DataTable();
+
+$('.filter-button').on('click', function () {
+    //clear global search values
+    dtable.search('');
+    $('.filter').each(function(){ 
+    if(this.value.length){
+      dtable.column($(this).data('columnIndex')).search(this.value);
+    }
+    });
+    dtable.draw();
+});
+
+$( ".dataTables_filter input" ).on( 'keyup change',function() {
+   //clear column search values
+    dtable.columns().search('');
+   //clear input values
+   $('.filter').val('');
+});	
+
+});
+</script>
 @endsection 

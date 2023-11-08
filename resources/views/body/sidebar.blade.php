@@ -109,7 +109,7 @@
                 <li class="mt-2" id="change">
                     <a href="{{ route('all.employee') }}">
 
-                        <img src="backend/assets/images/employee.svg" alt="">
+                        <img src="backend/assets/images/iconamoon_profile-fill.svg" alt="">
                         <span style="margin-left:5px;" id="mouhov"> Employee </span>
                     </a>
                 </li>
@@ -118,7 +118,7 @@
                     <a href="{{ url('/getevent') }}">
 
                         <img src="backend/assets/images/ph_tree-structure-fill.svg" alt="">
-                        <span style="margin-left:5px;" id="mouhov"> structure </span>
+                        <span style="margin-left:5px;" id="mouhov"> Structure </span>
                     </a>
                 </li>
 

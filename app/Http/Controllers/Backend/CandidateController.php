@@ -13,6 +13,7 @@ class CandidateController extends Controller
     public function AllCandidate(){
 
         $candidate = Candidate::latest()->get();
+
         return view('backend.candidate.all_candidate',compact('candidate'));
     } // end method
 
@@ -63,6 +64,9 @@ class CandidateController extends Controller
 
         ]);
 
+        $filt=Candidate::when($request->stages !=null,function($candidate) use ($request){
+            return $candidate->where('status_message',$request->stages);
+        });
         $notification = array(
             'message' => 'Candidate Inserted Successfully',
             'alert-type' => 'success'
@@ -92,6 +96,9 @@ class CandidateController extends Controller
 
         ]);
 
+        $filt=Candidate::when($request->stages !=null,function($q) use ($request){
+            return $q->where('status_message',$request->stages);
+        });
          $notification = array(
             'message' => 'Candidate Updated Successfully',
             'alert-type' => 'success'
