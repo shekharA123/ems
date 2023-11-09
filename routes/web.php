@@ -89,6 +89,7 @@ Route::get('/delete/employee/{id}','DeleteEmployee')->name('delete.employee');
       Route::get('/edit/candidate/{id}','EditCandidate')->name('edit.candidate');
       Route::post('/update/candidate','UpdateCandidate')->name('update.candidate');
       Route::get('/delete/candidate/{id}','DeleteCandidate')->name('delete.candidate');
+      Route::get('/hiring/candidate/{id}','HiringCandidate')->name('hiring.candidate');
       });
 
     

@@ -120,4 +120,11 @@ class CandidateController extends Controller
         return redirect()->back()->with($notification); 
 
     }//end method
+
+    public function HiringCandidate($id){
+        //  $candidate = Candidate::findOrFail($id)->get();
+        $candidate = Candidate::latest()->get();
+        
+        return view('backend.candidate.hiring_candidate',compact('candidate'));
+    } // end method
 }
