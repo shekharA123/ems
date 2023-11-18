@@ -96,7 +96,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="firstname" class="form-label">Candidate Name</label>
-            <input type="text" name="candidate_name" class="form-control @error('candidate_name') is-invalid @enderror" >  
+            <input type="text" name="candidate_name" class="form-control @error('candidate_name') is-invalid @enderror" value="{{ $candidate->candidate_name }}">  
               @error('candidate_name')
       <span class="text-danger"> {{ $message }} </span>
             @enderror 
@@ -104,10 +104,38 @@
     </div>
 
 
+    <div class="col-md-6">
+        <div class="mb-3">
+            <label for="firstname" class="form-label">Candidate Email</label>
+            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ $candidate->email }}"  >
+             @error('email')
+      <span class="text-danger"> {{ $message }} </span>
+            @enderror
+        </div>
+    </div> 
+
+
+      
+   <div class="col-md-12">
+<div class="mb-3">
+        <label for="example-fileinput" class="form-label">Candidate Image</label>
+        <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" >
+          @error('image')
+      <span class="text-danger"> {{ $message }} </span>
+            @enderror
+    </div>
+ </div>   <!--end col -->
+
+
+    <div class="col-md-12">
+<div class="mb-3">
+        <label for="example-fileinput" class="form-label"> </label>
+        <img id="showImage" src="{{  asset($candidate->image) }}" class="rounded-circle avatar-lg img-thumbnail"
+                alt="profile-image">
+    </div>
+ </div>   <!--end col -->
+
           
-
-
-
 
     
     <!-- <label for="rating">Rate this candidate:</label><br>
@@ -168,7 +196,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="firstname" class="form-label">Applied Date</label>
-            <input type="date" name="applied_date" class="form-control @error('applied_date') is-invalid @enderror" >  
+            <input type="date" name="applied_date" class="form-control @error('applied_date') is-invalid @enderror" value="{{ $candidate->applied_date}}" >  
               @error('applied_date')
       <span class="text-danger"> {{ $message }} </span>
             @enderror 
@@ -180,7 +208,7 @@
     <div class="col-md-6">
         <div class="mb-3">
             <label for="firstname" class="form-label">Add Owner</label>
-            <input type="text" name="owner" class="form-control @error('owner') is-invalid @enderror"   >
+            <input type="text" name="owner" class="form-control @error('owner') is-invalid @enderror" value="{{ $candidate->owner}}"  >
               @error('owner')
       <span class="text-danger"> {{ $message }} </span>
             @enderror 
@@ -189,6 +217,24 @@
 
 
 
+    <div class="col-md-12">
+<div class="mb-3">
+        <label for="example-fileinput" class="form-label">Owner Image</label>
+        <input type="file" name="owner_image" id="image2" class="form-control @error('owner_image') is-invalid @enderror">
+          @error('owner_image')
+      <span class="text-danger"> {{ $message }} </span>
+            @enderror
+    </div>
+ </div>   <!--end col -->
+
+
+    <div class="col-md-12">
+<div class="mb-3">
+        <label for="example-fileinput" class="form-label"> </label>
+        <img id="showImage2" src="{{  asset($candidate->owner_image) }}" class="rounded-circle avatar-lg img-thumbnail"
+                alt="profile-image">
+    </div>
+ </div>   <!--end col -->
 
 
 

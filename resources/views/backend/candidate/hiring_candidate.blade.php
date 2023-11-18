@@ -32,11 +32,11 @@
                                                 <div class="text-start mt-3">
                     
                      
-                    <p class="text-muted mb-2 font-13"><strong> Name :</strong> <span class="ms-2">{{ $item->candidate_name }}</span></p>
+                    <p class=" mb-2 font-13"><strong> Name :</strong> <span class="ms-2">{{ $item->candidate_name }}</span></p>
                 
                     <!-- <p class="text-muted mb-2 font-13"><strong>Phone :</strong><span class="ms-2">{{ $item->phone }}</span></p> -->
                 
-                    <p class="text-muted mb-2 font-13"><strong>Email :</strong> <span class="ms-2">{{ $item->email }}</span></p>
+                    <p class=" mb-2 font-13"><strong>Email :</strong> <span class="ms-2">{{ $item->email }}</span></p>
                 
                  
                 </div> 
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
 </div>     
-@endforeach
+
 
 <!-- second card of hiring pipeline -->
 
@@ -84,7 +84,7 @@
                                                     <span class="d-none d-sm-block" style=" color: #000; ">RESUME</span> 
                                                 </a>
                                             </li>
-                                            <li class="nav-item">
+                                            <li class="nav-item" id="hire">
                                                 <a class="nav-link active" data-bs-toggle="tab" href="#messages1" role="tab" aria-selected="true" >
                                                     <span class="d-block d-sm-none" ><i class="far fa-envelope"></i></span>
                                                     <span class="d-none d-sm-block" style="font-weight:700; width: 142px; height: 19px; flex-shrink: 0; color: #000;">HIRING PIPELINE</span>
@@ -97,14 +97,25 @@
                                                 </a>
                                             </li>
                                         </ul>
-        
+                                 <div class="tab-content">
+
+                                 
                                         <!-- Tab panes -->
-                                        <div class="tab-content p-3 text-muted">
-                                            
+                                        <div class="tab-content p-3" id="hire">
+                                            <p>hello dm</p>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    Details <hr style="background: rgba(0, 0, 0, 0.30);">
+                                                   Stage : <span class="ms-2">{{ $item->stages }}</span><br>
+                                                  Date <span class="ms-2">{{ $item->applied_date }}</span>
+                                                </div>
+
+                                            </div>
                                             
                                            
                                            
                                         </div>
+                                    </div>
         
                                         
                                     </div>
@@ -112,7 +123,7 @@
 
 
 
-
+                                @endforeach
 
 @endsection
 
