@@ -26,7 +26,7 @@
 <div class="card">
 <div class="card-body">
 <center>
-    <h1 class="card-title">EVENT ALL DATA </h1>
+    <h1 class="card-title">EVENT all data </h1>
 
 
     <table id="datatable"  class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 50%;">
