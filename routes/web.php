@@ -193,8 +193,15 @@ Route::controller(PosController::class)->group(function(){
  Route::get('/cart-remove/{rowId}','CartRemove');
 });
 
+//All Route Inboxs
+
+
+
+// calendar all Route
 Route::get('/getevent', [FullCalendarController::class, 'getEvent'])->name('getevent');
 Route::post('/createevent',[FullCalendarController::class, 'createEvent'])->name('createevent');
+Route::get('/calendar/fullcalendar',[FullCalendarController::class, 'FullCalendar'])->name('calendar.fullcalendar');
+Route::post('/calendar/store',[FullCalendarController::class, 'CalendarStore'])->name('calendar.store');
 Route::post('/deleteevent',[FullCalendarController::class, 'deleteEvent'])->name('deleteevent');
 
 Route::controller(FullCalendarController::class)->group(function () {
@@ -203,16 +210,7 @@ Route::controller(FullCalendarController::class)->group(function () {
     Route::get('/deleteevent/{id}', 'deleteEvent')->name('deleteEvent');
 });
 Route::get('/event/edit/{id}', [FullCalendarController::class, 'edit'])->name('event.edit');
-Route::post('/event/update/{id}', [FullCalendarController::class, 'update'])->name('event.update');
+Route::post('/event/update/{id}', [FullCalendarController::class, 'FullCalendarUpdate'])->name('event.update');
 Route::get('/calendar/all_events', [FullCalendarController::class, 'allEvents'])->name('calendar.all_events');
-
-
-
-
-
-
-
-
-
 
 }); // End User Middleware
