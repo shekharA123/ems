@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('admin_dashboard')
+@section('admin')
 
-@section('content')
 <center>
 <div class="page-content">
     <div class="container-fluid">

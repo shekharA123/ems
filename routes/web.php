@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\Backend\PosController;
 use App\Http\Controllers\FullCalendarController;
+use App\Http\Controllers\InboxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -194,6 +195,10 @@ Route::controller(PosController::class)->group(function(){
 });
 
 //All Route Inboxs
+Route::controller(InboxController::class)->group(function(){
+    Route::get('/inbox/all_inbox','AllInbox')->name('inbox.all_inbox');
+
+});
 
 
 
