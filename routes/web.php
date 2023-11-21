@@ -197,6 +197,7 @@ Route::controller(PosController::class)->group(function(){
 //All Route Inboxs
 Route::controller(InboxController::class)->group(function(){
     Route::get('/inbox/all_inbox','AllInbox')->name('inbox.all_inbox');
+    Route::get('/all/recruitment','AllRecruitment')->name('all.recruitment');
 
 });
 
