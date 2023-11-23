@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 class EmployeeController extends Controller
 {
+    //this function is used for the fetch data in database and data passed to view using the return view
     public function AllEmployee(){
 
         $employee = Employee::latest()->get();
