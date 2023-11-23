@@ -16,16 +16,16 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('link_url');
-            $table->string('candidate_profile');
-            $table->string('candidate_name');
-            $table->string('interpersonal_skill');
-            $table->string('communication_skill');
-            $table->string('problem_sovling');
+            $table->string('link_url')->nullable();
+            $table->string('candidate_profile')->nullable();
+            $table->string('candidate_name')->nullable();
+            $table->string('interpersonal_skill')->nullable();
+            $table->string('communication_skill')->nullable();
+            $table->string('problem_sovling')->nullable();
             $table->string('hr_profile');
-            $table->string('hr_name');
-            $table->string('hr_email');
-            $table->string('instruction');
+            $table->string('hr_name')->nullable();
+            $table->string('hr_email')->nullable();
+            $table->string('instruction')->nullable();
             $table->dateTime('start');
             $table->dateTime('end');
             $table->timestamps();
