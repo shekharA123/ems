@@ -78,13 +78,13 @@ class FullCalendarController extends Controller
 
         $image = $request->file('candidate_profile');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(300,300)->save('upload/apponitment_inter/'.$name_gen);
-        $save_url = 'upload/apponitment_inter/'.$name_gen;
+        Image::make($image)->resize(300,300)->save($name_gen);
+        $save_url = $name_gen;
 
         $pic = $request->file('hr_profile');
         $pic_name = hexdec(uniqid()).'.'.$pic->getClientOriginalExtension();
-        Image::make($pic)->resize(302,302)->save('upload/apponitment_hr/'.$pic_name);
-        $image_save= 'upload/apponitment_hr/'.$pic_name;
+        Image::make($pic)->resize(302,302)->save($pic_name);
+        $image_save=$pic_name;
 
         $startDatetime = Carbon::parse($request->start)->format('Y-m-d H:i:s');
         $endDatetime = Carbon::parse($request->end)->format('Y-m-d H:i:s');
