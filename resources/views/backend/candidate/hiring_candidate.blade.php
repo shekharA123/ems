@@ -35,6 +35,17 @@ border: 1px solid rgba(0, 0, 0, 0.30);
     text-align: left; 
     
 }
+.card-bodyyy-2{
+    color: #000;
+    width: 1199.661px;
+height: 277.056px;
+flex-shrink: 0;
+border: 1px solid rgba(0, 0, 0, 0.30);
+}
+#card-notes{
+    color: #000;
+    text-align: left; 
+}
 .heading{
     color: #000;
 font-family: Inter;
@@ -370,6 +381,36 @@ flex-shrink: 0;
 		<!-- </div>  -->
 	</div> 
 
+	
+	<div class="card-bodyyy-2" id="card-notes">
+	     <div class="heading"> Notes <hr width="1200px;" color="black" size="3" ></div>
+                           <!-- <br><br> -->
+						   <div class="card-body p-4">
+              <div class="form-outline mb-4">
+                <input type="text" id="addANote" class="form-control" placeholder="Type comment...">
+                <label class="form-label" for="addANote">+ Add a note</label>
+              </div>
+
+              <div class="card mb-4">
+                <div class="card-body">
+                  <!-- <p>Type your note, and hit enter to add it</p> -->
+
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-row align-items-center">
+                      <img src="{{ asset($item->owner_image) }}" alt="avatar" width="25" height="25">
+                      <!-- <p class="small mb-0 ms-2">Martha</p> -->
+					  {{ $item->owner }}
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+        
+            </div>
+	</div>
+
+	
 <!-- <script src="script.js"></script>  -->
 <script>
     $(document).ready(function () { 
