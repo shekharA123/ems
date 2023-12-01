@@ -88,10 +88,10 @@
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Interview Call Link</label>
-                    <input name="link_url" class="form-control @error('link_url') is-invalid @enderror" type="url">
-                    @error('link_url')
+                    <input name="link_url" class="form-control" type="url">
+                  
                     <span class="text-danger"> {{ $message }} </span>
-                    @enderror
+                   
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Candidate Profile</label>
