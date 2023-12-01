@@ -89,9 +89,6 @@
                   <div class="mb-3">
                     <label class="form-label">Interview Call Link</label>
                     <input name="link_url" class="form-control" type="url">
-                  
-                    <span class="text-danger"> {{ $message }} </span>
-                   
                   </div>
                   <div class="mb-3">
                     <label class="form-label">Candidate Profile</label>
