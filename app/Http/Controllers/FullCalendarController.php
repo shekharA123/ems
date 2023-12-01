@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Event; //add Event Model
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
 
 
 class FullCalendarController extends Controller
