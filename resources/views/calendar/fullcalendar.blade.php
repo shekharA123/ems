@@ -244,7 +244,7 @@
       selectable: true,
       selectHelper: true,
       select: function () {
-        $('#basicExampleModal').modal('toggle');
+        $('#basicExampleModal').model('toggle');
       }
     });
   });
