@@ -57,6 +57,11 @@ width: 54.003px;
 height: 17px;
 flex-shrink: 0;
 }
+.container2{
+	<svg xmlns="http://www.w3.org/2000/svg" width="118" height="39" viewBox="0 0 118 39" fill="none">
+  <path d="M0 0H106.739L118 19.4844L106.739 38.9688H0L8.32365 19.4844L0 0Z" fill="#E5ECF2"/>
+</svg>
+}
 #form { 
 	text-align: center; 
 	position: relative; 
@@ -126,7 +131,35 @@ flex-shrink: 0;
 	color: #2F8D46; 
 	font-weight: normal
 } 
+            
+.arrow-pointer {
+  width: 250px;
+  height: 50px;
+  background: #32557f;
+  position: relative;
 
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0; width: 0; height: 0;
+    border-left: 25px solid #7eb4e2;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    right: -25px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 25px solid #32557f;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+  }
+}
+    
 #progressbar { 
 	margin-bottom: 30px; 
 	overflow: hidden; 
@@ -135,6 +168,7 @@ flex-shrink: 0;
 
 #progressbar .active { 
 	color: #FEC37E
+	
 } 
 
 #progressbar li { 
@@ -146,8 +180,37 @@ flex-shrink: 0;
 	font-weight: 400
 } 
 
+#pointer {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  background: red;
+}
+#pointer:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid white;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+#pointer:before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid red;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
 #progressbar #step1:before { 
 	content: "Screening"
+	
 } 
 
 #progressbar #step2:before { 
@@ -300,10 +363,11 @@ flex-shrink: 0;
 				<!-- col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">  -->
 				<!-- <div class="px-0 pt-4 pb-0 mt-3 mb-3">  -->
 					<form id="form"> 
-						<ul id="progressbar"> 
-							 <li class="active" id="step1"> <!--<svg xmlns="http://www.w3.org/2000/svg" width="118" height="39" viewBox="0 0 118 39" fill="none">
+						<ul id="progressbar" >
+
+							  <li class="active" id="step1"> <!--<svg xmlns="http://www.w3.org/2000/svg" width="118" height="39" viewBox="0 0 118 39" fill="none">
                                                               <path d="M0 0H106.739L118 19.4844L106.739 38.9688H0L8.32365 19.4844L0 0Z" fill="#FEC37E"/>
-                                                           </svg> -->
+                                                           </svg>  -->
 								<!-- <strong>Screen</strong>  -->
 							</li> 
 							<li id="step2">
