@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\Backend\PosController;
 use App\Http\Controllers\FullCalendarController;
+use App\Http\Controllers\Backend\CandidateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,7 @@ Route::controller(EmployeeController::class)->group(function(){
 
 Route::get('/all/employee','AllEmployee')->name('all.employee');
 Route::get('/add/employee','AddEmployee')->name('add.employee');
+Route::get('/hiring/employee','HiringEmployee')->name('hiring.employee');
 Route::post('/store/employee','StoreEmployee')->name('employee.store');
 Route::get('/edit/employee/{id}','EditEmployee')->name('edit.employee');
 Route::post('/update/employee','UpdateEmployee')->name('employee.update');
@@ -76,6 +78,21 @@ Route::get('/delete/employee/{id}','DeleteEmployee')->name('delete.employee');
 });
 
 
+
+
+  /// Candidate All Route
+  Route::controller(CandidateController::class)->group(function(){
+
+      Route::get('/all/candidate','AllCandidate')->name('all.candidate');
+      Route::get('/add/candidate','AddCandidate')->name('add.candidate');
+      Route::post('/store/candidate','StoreCandidate')->name('store.candidate');
+      Route::get('/edit/candidate/{id}','EditCandidate')->name('edit.candidate');
+      Route::post('/update/candidate','UpdateCandidate')->name('update.candidate');
+      Route::get('/delete/candidate/{id}','DeleteCandidate')->name('delete.candidate');
+      Route::get('/hiring/candidate/{id}','HiringCandidate')->name('hiring.candidate');
+      });
+
+    
 /// Customer All Route
 Route::controller(CustomerController::class)->group(function(){
 

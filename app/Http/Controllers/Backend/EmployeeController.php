@@ -158,7 +158,11 @@ class EmployeeController extends Controller
 
     } // End Method 
 
+    public function HiringEmployee(){
 
+        $employee = Employee::latest()->get();
+        return view('backend.employee.hiring_employee',compact('employee'));
+    } // End Method 
 
 
 }
