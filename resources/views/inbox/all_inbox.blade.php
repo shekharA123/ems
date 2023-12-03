@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="row mt-3">
             <div class="col-3">
-                <a href="{{ route('all.recruitment')}}"><h4>RECRUITMENT inbox</h4></a>
+                <a href="{{ route('all.recruitment')}}"><h4>RECRUITMENT INBOX</h4></a>
             </div>
            
             <div class="col-2">
